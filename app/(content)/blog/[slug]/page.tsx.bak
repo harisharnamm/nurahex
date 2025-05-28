@@ -1,0 +1,380 @@
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react"
+import { SecondaryLink } from "@/components/shared/secondary-link"
+import { Tag } from "@/components/ui/tag"
+
+// This would normally come from a CMS or API
+const blogPosts = {
+  "ai-implementation-guide": {
+    title: "The Complete Guide to AI Implementation",
+    excerpt: "Learn how to successfully implement AI in your business with our step-by-step guide.",
+    date: "May 15, 2023",
+    readTime: "8 min read",
+    author: "Dr. Alex Chen",
+    authorRole: "Co-founder & CTO",
+    authorImage: "/placeholder.svg?height=100&width=100",
+    image: "/placeholder.svg?height=600&width=1200",
+    tags: ["AI Implementation", "Business"],
+    content: `
+      <h2 id="introduction">Introduction</h2>
+      <p>Implementing AI in your business can seem like a daunting task, especially if you're not familiar with the technology. However, with the right approach, it can be a smooth and rewarding process that delivers significant value to your organization.</p>
+      
+      <p>In this guide, we'll walk you through the key steps to successfully implement AI in your business, from identifying opportunities to measuring success.</p>
+      
+      <h2 id="step-1">Step 1: Identify the Right Opportunities</h2>
+      <p>The first step in any AI implementation is to identify the right opportunities. Look for areas in your business where:</p>
+      <ul>
+        <li>There are repetitive, time-consuming tasks that could be automated</li>
+        <li>You have access to large amounts of data that could yield valuable insights</li>
+        <li>There are decision-making processes that could benefit from data-driven insights</li>
+        <li>Customer interactions could be enhanced with personalization or automation</li>
+      </ul>
+      
+      <p>It's important to start with a clear business problem rather than trying to implement AI for its own sake. This ensures that your AI initiative is aligned with your business goals and has a clear path to ROI.</p>
+      
+      <h2>Step 2: Assess Data Readiness</h2>
+      <p>AI systems rely on data to learn and make predictions. Before implementing AI, you need to assess your data readiness:</p>
+      <ul>
+        <li>Do you have enough data to train an AI model?</li>
+        <li>Is your data clean, structured, and accessible?</li>
+        <li>Do you have processes in place for data collection and management?</li>
+        <li>Are there any privacy or security concerns with your data?</li>
+      </ul>
+      
+      <p>If your data isn't ready, you may need to invest in data infrastructure and processes before proceeding with AI implementation.</p>
+      
+      <h2>Step 3: Choose the Right Approach</h2>
+      <p>There are several approaches to implementing AI in your business:</p>
+      <ul>
+        <li><strong>Build:</strong> Develop custom AI solutions in-house</li>
+        <li><strong>Buy:</strong> Purchase off-the-shelf AI products or services</li>
+        <li><strong>Partner:</strong> Work with an AI implementation partner like NurahexAI</li>
+      </ul>
+      
+      <p>The right approach depends on your specific needs, resources, and timeline. Building in-house gives you the most control but requires significant expertise and resources. Buying off-the-shelf solutions is quicker but may not perfectly fit your needs. Partnering with experts like NurahexAI offers a balance of customization and efficiency.</p>
+      
+      <h2>Step 4: Start Small and Iterate</h2>
+      <p>Rather than trying to implement AI across your entire organization at once, start with a small pilot project. This allows you to:</p>
+      <ul>
+        <li>Test the technology in a controlled environment</li>
+        <li>Learn from the implementation process</li>
+        <li>Demonstrate value to stakeholders</li>
+        <li>Build momentum for larger AI initiatives</li>
+      </ul>
+      
+      <p>Once your pilot is successful, you can scale up and apply the lessons learned to other areas of your business.</p>
+      
+      <h2>Step 5: Measure Success and Iterate</h2>
+      <p>To ensure your AI implementation is delivering value, you need to measure its success against your business goals. Define clear KPIs before implementation and track them regularly.</p>
+      
+      <p>Common metrics for AI success include:</p>
+      <ul>
+        <li>Efficiency gains (time saved, resources freed up)</li>
+        <li>Cost savings</li>
+        <li>Revenue growth</li>
+        <li>Customer satisfaction improvements</li>
+        <li>Error reduction</li>
+      </ul>
+      
+      <p>Based on these metrics, continuously iterate and improve your AI implementation to maximize its value.</p>
+      
+      <h2>Conclusion</h2>
+      <p>Implementing AI in your business is a journey, not a destination. By following these steps and taking a thoughtful, strategic approach, you can successfully leverage AI to drive significant value for your organization.</p>
+      
+      <p>At OrbitAI, we've helped numerous businesses implement AI solutions that deliver real business value. If you're ready to start your AI journey, we're here to help.</p>
+    `,
+  },
+  "llm-explained": {
+    title: "Large Language Models Explained",
+    excerpt: "A deep dive into how large language models work and how they can be used in business applications.",
+    date: "June 2, 2023",
+    readTime: "12 min read",
+    author: "Dr. Maya Patel",
+    authorRole: "AI Research Lead",
+    authorImage: "/placeholder.svg?height=100&width=100",
+    image: "/placeholder.svg?height=600&width=1200",
+    tags: ["LLM", "Technical", "AI Development"],
+    content: `
+      <h2 id="introduction">Introduction</h2>
+      <p>Large Language Models (LLMs) have revolutionized artificial intelligence, enabling systems to understand, generate, and manipulate human language with unprecedented sophistication. From customer service chatbots to content generation tools, LLMs are transforming how businesses operate and interact with their customers.</p>
+      
+      <p>In this article, we'll demystify LLMs, exploring how they work, their capabilities and limitations, and practical applications for businesses across various industries.</p>
+      
+      <h2 id="what-are-llms">What Are Large Language Models?</h2>
+      <p>Large Language Models (LLMs) are a type of artificial intelligence model designed to understand, interpret, and generate human language. The "large" in LLMs refers to the scale of these models, which often contain billions or even trillions of parameters - the values that the model has learned during training.</p>
+      
+      <p>Examples of prominent LLMs include:</p>
+      <ul>
+        <li>GPT-4 (OpenAI)</li>
+        <li>Claude (Anthropic)</li>
+        <li>Gemini (Google)</li>
+        <li>Llama 3 (Meta)</li>
+      </ul>
+      
+      <p>These models are trained on vast amounts of text data from the internet, books, articles, and various other sources, allowing them to learn patterns, relationships, and structures in human language.</p>
+      
+      <h2 id="how-llms-work">How Do LLMs Work?</h2>
+      <p>At their core, LLMs are built on transformer architecture, a neural network design that excels at processing sequential data like text. Here's a simplified explanation of how they work:</p>
+      
+      <h3 id="transformer-architecture">1. Transformer Architecture</h3>
+      <p>The transformer architecture, introduced in 2017, uses a mechanism called "attention" that allows the model to focus on different parts of the input text when generating each word of the output. This enables the model to capture long-range dependencies and relationships between words, even when they're far apart in the text.</p>
+      
+      <h3 id="training-process">2. Training Process</h3>
+      <p>LLMs are typically trained through a process called "unsupervised learning," where they're exposed to vast amounts of text without explicit labeling. The model learns to predict the next word in a sequence, which requires it to understand grammar, facts, reasoning, and more.</p>
+      
+      <h3 id="fine-tuning">3. Fine-tuning</h3>
+      <p>After initial training, models are often fine-tuned on specific datasets to improve performance on particular tasks or to align them with human preferences and values. This process helps make them more useful and safe for specific applications.</p>
+      
+      <h2 id="capabilities">Capabilities of LLMs</h2>
+      <p>Modern LLMs demonstrate remarkable capabilities across a wide range of language tasks:</p>
+      
+      <h3 id="text-generation">1. Text Generation</h3>
+      <p>LLMs can generate human-like text for various purposes, from creative writing to technical documentation. They can maintain consistency over long passages and adapt to different tones and styles.</p>
+      
+      <h3 id="understanding-context">2. Understanding Context</h3>
+      <p>LLMs can understand and maintain context throughout a conversation, allowing for more natural and coherent interactions. They can follow complex instructions and remember details from earlier in a conversation.</p>
+      
+      <h3 id="translation">3. Translation</h3>
+      <p>LLMs can translate between languages with high accuracy, often capturing nuances and idiomatic expressions that traditional translation systems miss.</p>
+      
+      <h3 id="summarization">4. Summarization</h3>
+      <p>They can condense long documents into concise summaries while preserving key information and insights, making them valuable tools for information processing.</p>
+      
+      <h2 id="limitations">Limitations of LLMs</h2>
+      <p>Despite their impressive capabilities, LLMs have several important limitations:</p>
+      
+      <h3 id="hallucinations">1. "Hallucinations"</h3>
+      <p>LLMs can generate plausible-sounding but factually incorrect information. They don't truly "know" facts; they predict what text should come next based on patterns in their training data.</p>
+      
+      <h3 id="context-window">2. Limited Context Window</h3>
+      <p>Most LLMs have a limit to how much text they can process at once (their "context window"), which constrains their ability to reason over very long documents.</p>
+      
+      <h3 id="data-cutoff">3. Training Data Cutoff</h3>
+      <p>LLMs only have knowledge of information included in their training data, which has a cutoff date. They don't have real-time information unless specifically connected to external data sources.</p>
+      
+      <h3 id="reasoning-limitations">4. Reasoning Limitations</h3>
+      <p>While LLMs can simulate reasoning, they sometimes struggle with complex logical reasoning, mathematical problem-solving, and causal understanding.</p>
+      
+      <h2 id="business-applications">Business Applications of LLMs</h2>
+      <p>LLMs are being applied across various business functions with significant impact:</p>
+      
+      <h3 id="customer-service">1. Customer Service</h3>
+      <p>LLMs power sophisticated chatbots and virtual assistants that can handle customer inquiries 24/7, reducing support costs while maintaining high service quality. These systems can understand complex queries, provide appropriate responses, and escalate issues when necessary.</p>
+      
+      <h3 id="content-creation">2. Content Creation</h3>
+      <p>Marketing teams use LLMs to draft blog posts, social media content, product descriptions, and email campaigns. While human oversight remains important, LLMs can significantly accelerate content creation workflows.</p>
+      
+      <h3 id="data-analysis">3. Data Analysis and Insights</h3>
+      <p>LLMs can analyze text data from customer feedback, reviews, and social media to extract insights about product performance, customer sentiment, and market trends.</p>
+      
+      <h3 id="personalization">4. Personalization</h3>
+      <p>By understanding customer preferences and behaviors, LLMs help businesses create personalized experiences, recommendations, and marketing messages at scale.</p>
+      
+      <h2 id="implementation-considerations">Implementation Considerations</h2>
+      <p>When implementing LLMs in your business, consider the following:</p>
+      
+      <h3 id="human-in-the-loop">1. Human-in-the-loop Approach</h3>
+      <p>For critical applications, maintain human oversight to review and validate LLM outputs before they reach customers or influence important decisions.</p>
+      
+      <h3 id="data-privacy">2. Data Privacy and Security</h3>
+      <p>Ensure that your implementation complies with relevant regulations and protects sensitive customer information. Be transparent about AI use in customer interactions.</p>
+      
+      <h3 id="cost-considerations">3. Cost Considerations</h3>
+      <p>While LLMs can deliver significant ROI, deployment costs including API fees, computing resources, and human supervision should be factored into your business case.</p>
+      
+      <h3 id="continuous-improvement">4. Continuous Improvement</h3>
+      <p>LLM capabilities are evolving rapidly. Establish a process for regularly evaluating and updating your implementations to leverage new capabilities and address emerging limitations.</p>
+      
+      <h2 id="conclusion">Conclusion</h2>
+      <p>Large Language Models represent a transformative technology with the potential to enhance numerous business processes and customer experiences. By understanding both their capabilities and limitations, businesses can implement LLMs strategically to drive efficiency, innovation, and competitive advantage.</p>
+      
+      <p>At OrbitAI, we help businesses implement LLMs and other AI solutions in ways that deliver tangible business value. If you're interested in exploring how LLMs could benefit your organization, we invite you to <a href="/contact">contact us</a> for a consultation.</p>
+    `,
+    readTime: "12 min read",
+    author: "Dr. Maya Patel",
+    authorRole: "AI Research Lead",
+    authorImage: "/placeholder.svg?height=100&width=100",
+    image: "/placeholder.svg?height=600&width=1200",
+    tags: ["LLM", "Technical", "AI Development"],
+    content: `
+      <h2 id="introduction">Introduction</h2>
+      <p>Large Language Models (LLMs) have revolutionized artificial intelligence, enabling systems to understand, generate, and manipulate human language with unprecedented sophistication. From customer service chatbots to content generation tools, LLMs are transforming how businesses operate and interact with their customers.</p>
+      
+      <p>In this article, we'll demystify LLMs, exploring how they work, their capabilities and limitations, and practical applications for businesses across various industries.</p>
+      
+      <h2 id="what-are-llms">What Are Large Language Models?</h2>
+      <p>Large Language Models (LLMs) are a type of artificial intelligence model designed to understand, interpret, and generate human language. The "large" in LLMs refers to the scale of these models, which often contain billions or even trillions of parameters - the values that the model has learned during training.</p>
+      
+      <p>Examples of prominent LLMs include:</p>
+      <ul>
+        <li>GPT-4 (OpenAI)</li>
+        <li>Claude (Anthropic)</li>
+        <li>Gemini (Google)</li>
+        <li>Llama 3 (Meta)</li>
+      </ul>
+      
+      <p>These models are trained on vast amounts of text data from the internet, books, articles, and various other sources, allowing them to learn patterns, relationships, and structures in human language.</p>
+      
+      <h2 id="how-llms-work">How Do LLMs Work?</h2>
+      <p>At their core, LLMs are built on transformer architecture, a neural network design that excels at processing sequential data like text. Here's a simplified explanation of how they work:</p>
+      
+      <h3 id="transformer-architecture">1. Transformer Architecture</h3>
+      <p>The transformer architecture, introduced in 2017, uses a mechanism called "attention" that allows the model to focus on different parts of the input text when generating each word of the output. This enables the model to capture long-range dependencies and relationships between words, even when they're far apart in the text.</p>
+      
+      <h3 id="training-process">2. Training Process</h3>
+      <p>LLMs are typically trained through a process called "unsupervised learning," where they're exposed to vast amounts of text without explicit labeling. The model learns to predict the next word in a sequence, which requires it to understand grammar, facts, reasoning, and more.</p>
+      
+      <h3 id="fine-tuning">3. Fine-tuning</h3>
+      <p>After initial training, models are often fine-tuned on specific datasets to improve performance on particular tasks or to align them with human preferences and values. This process helps make them more useful and safe for specific applications.</p>
+      
+      <h2 id="capabilities">Capabilities of LLMs</h2>
+      <p>Modern LLMs demonstrate remarkable capabilities across a wide range of language tasks:</p>
+      
+      <h3 id="text-generation">1. Text Generation</h3>
+      <p>LLMs can generate human-like text for various purposes, from creative writing to technical documentation. They can maintain consistency over long passages and adapt to different tones and styles.</p>
+      
+      <h3 id="understanding-context">2. Understanding Context</h3>
+      <p>LLMs can understand and maintain context throughout a conversation, allowing for more natural and coherent interactions. They can follow complex instructions and remember details from earlier in a conversation.</p>
+      
+      <h3 id="translation">3. Translation</h3>
+      <p>LLMs can translate between languages with high accuracy, often capturing nuances and idiomatic expressions that traditional translation systems miss.</p>
+      
+      <h3 id="summarization">4. Summarization</h3>
+      <p>They can condense long documents into concise summaries while preserving key information and insights, making them valuable tools for information processing.</p>
+      
+      <h2 id="limitations">Limitations of LLMs</h2>
+      <p>Despite their impressive capabilities, LLMs have several important limitations:</p>
+      
+      <h3 id="hallucinations">1. "Hallucinations"</h3>
+      <p>LLMs can generate plausible-sounding but factually incorrect information. They don't truly "know" facts; they predict what text should come next based on patterns in their training data.</p>
+      
+      <h3 id="context-window">2. Limited Context Window</h3>
+      <p>Most LLMs have a limit to how much text they can process at once (their "context window"), which constrains their ability to reason over very long documents.</p>
+      
+      <h3 id="data-cutoff">3. Training Data Cutoff</h3>
+      <p>LLMs only have knowledge of information included in their
+                          Step 1: Identify Opportunities
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#step-2" className="text-white/70 hover:text-primary">
+                          Step 2: Assess Data Readiness
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#step-3" className="text-white/70 hover:text-primary">
+                          Step 3: Choose the Right Approach
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#step-4" className="text-white/70 hover:text-primary">
+                          Step 4: Start Small and Iterate
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#step-5" className="text-white/70 hover:text-primary">
+                          Step 5: Measure Success
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#conclusion" className="text-white/70 hover:text-primary">
+                          Conclusion
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
+                  <h3 className="text-lg font-bold mb-4">About the Author</h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                      <Image
+                        src={post.authorImage || "/placeholder.svg"}
+                        alt={post.author}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-medium">{post.author}</p>
+                      <p className="text-sm text-white/60">{post.authorRole}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-white/70">
+                    Dr. Chen is a leading expert in AI implementation with over 10 years of experience in the field.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-3">
+              <article className="prose prose-invert prose-lg max-w-none">
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+              </article>
+
+              <div className="mt-12 pt-8 border-t border-white/10">
+                <h3 className="text-xl font-bold mb-4">Share this article</h3>
+                <div className="flex gap-4">
+                  <button className="bg-white/10 hover:bg-white/20 p-2 rounded-full">
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                    </svg>
+                  </button>
+                  <button className="bg-white/10 hover:bg-white/20 p-2 rounded-full">
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        fillRule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                  <button className="bg-white/10 hover:bg-white/20 p-2 rounded-full">
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        fillRule="evenodd"
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-white/10">
+                <h3 className="text-xl font-bold mb-6">Related Articles</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Link href="/blog/llm-explained" className="group">
+                    <div className="bg-white/5 border border-white/10 rounded-lg p-4 h-full hover:bg-white/10 transition-colors">
+                      <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">
+                        Large Language Models Explained
+                      </h4>
+                      <p className="text-sm text-white/70 mb-2">
+                        A deep dive into how large language models work and how they can be used in business
+                        applications.
+                      </p>
+                      <span className="text-xs text-white/50">June 2, 2023</span>
+                    </div>
+                  </Link>
+                  <Link href="/blog/ai-roi-calculation" className="group">
+                    <div className="bg-white/5 border border-white/10 rounded-lg p-4 h-full hover:bg-white/10 transition-colors">
+                      <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">
+                        Calculating ROI for AI Projects
+                      </h4>
+                      <p className="text-sm text-white/70 mb-2">
+                        How to measure the return on investment for your AI initiatives and make data-driven decisions.
+                      </p>
+                      <span className="text-xs text-white/50">July 10, 2023</span>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
