@@ -137,13 +137,13 @@ export function FloatingNavBar() {
 							mobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
 						)}
 					>
-						<div className="flex flex-col space-y-2 pt-4 pb-2 border-t border-black/20">
+						<div className="flex flex-col space-y-2 pt-4 border-t border-black/20">
 							{navLinks.map((link) => (
 								<Link
 									key={link.href}
 									href={link.href}
 									className={cn(
-										"px-4 py-3 rounded-full text-sm font-medium transition-all duration-200 text-center",
+										"px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 text-center",
 										pathname === link.href
 											? "bg-black/10 text-black"
 											: "text-black/80 hover:bg-black/5 hover:text-black"
