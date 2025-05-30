@@ -6,7 +6,7 @@ import './flowing-menu.css';
 import './flowing-menu.mobile.css';
 
 interface MenuItemData {
-  link?: string; // Made optional since we're not using links anymore
+  link: string;
   text: string;
   image: string;
   hoverText?: string;
@@ -84,13 +84,14 @@ function MenuItem({ link, text, image, hoverText }: MenuItemData) {
 
   return (
     <div className="menu__item" ref={itemRef}>
-      <div
+      <a
         className="menu__item-link"
+        href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {text}
-      </div>
+      </a>
       <div className="marquee" ref={marqueeRef}>
         <div className="marquee__inner-wrap" ref={marqueeInnerRef}>
           <div className="marquee__inner" aria-hidden="true">

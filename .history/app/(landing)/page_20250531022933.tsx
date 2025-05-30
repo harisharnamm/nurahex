@@ -41,16 +41,19 @@ export default function Home() {
 
   const menuItems = [
   {
+    link: "#",
     text: "Transformative AI Solutions",
     image: "https://images.unsplash.com/photo-1677442135073-705703f7e328?q=80&w=1920&auto=format&fit=crop",
     hoverText: "We change the way your business operates."
   },
   {
+    link: "#",
     text: "Lightning Fast Deployment",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920&auto=format&fit=crop", 
     hoverText: "From concept to production in weeks."
   },
   {
+    link: "#",
     text: "Measurable Results",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop",
     hoverText: "Proven ROI with enterprise level scalable solutions."
@@ -744,10 +747,10 @@ export default function Home() {
             </p>
           </div>
           <div className="flowing-menu-container" style={{ 
-            height: 'min(60vh, 300px)', 
+            height: '300px', 
             position: 'relative', 
             zIndex: 10,
-            maxHeight: '450px'
+            maxHeight: 'min(70vh, 450px)'
           }}>
             <FlowingMenu items={menuItems} />
           </div>

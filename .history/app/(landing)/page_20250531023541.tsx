@@ -744,10 +744,10 @@ export default function Home() {
             </p>
           </div>
           <div className="flowing-menu-container" style={{ 
-            height: 'min(60vh, 300px)', 
+            height: '300px', 
             position: 'relative', 
             zIndex: 10,
-            maxHeight: '450px'
+            maxHeight: 'min(70vh, 450px)'
           }}>
             <FlowingMenu items={menuItems} />
           </div>

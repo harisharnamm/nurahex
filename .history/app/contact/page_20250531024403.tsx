@@ -10,11 +10,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="bg-white/5 border border-white/10 rounded-lg p-8 order-1 md:order-2">
-                <h2 className="text-2xl font-bold mb-6">Book Your Discovery Call</h2>
-                <LeadCaptureForm />
-              </div>
-              <div className="order-2 md:order-1">
+              <div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6">
                   Let's <span className="text-primary">Connect</span>
                 </h1>
@@ -92,6 +88,11 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-lg p-8">
+                <h2 className="text-2xl font-bold mb-6">Book Your Discovery Call</h2>
+                <LeadCaptureForm />
               </div>
             </div>
           </div>

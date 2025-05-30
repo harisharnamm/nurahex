@@ -6,7 +6,7 @@ import './flowing-menu.css';
 import './flowing-menu.mobile.css';
 
 interface MenuItemData {
-  link?: string; // Made optional since we're not using links anymore
+  link: string;
   text: string;
   image: string;
   hoverText?: string;
