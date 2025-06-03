@@ -111,11 +111,11 @@ export default function AboutPage() {
                 <span className="text-2xl">⭐</span>
               </div>
               <h3 className="text-xl font-heading font-bold text-white mb-4">
-                Excellence
+                Equality
               </h3>
               <p className="text-surface-300 leading-relaxed">
-                We strive for perfection in every line of code, every algorithm, and every 
-                solution we deliver. Excellence is not just our goal—it's our standard.
+                We champion equality in every voice we hear, every idea we build, and every community we serve. 
+                It’s not just a value—it’s the foundation of everything we do.
               </p>
             </div>
 
@@ -137,11 +137,11 @@ export default function AboutPage() {
                 <span className="text-2xl">🌱</span>
               </div>
               <h3 className="text-xl font-heading font-bold text-white mb-4">
-                Adaptability
+                Accountability
               </h3>
               <p className="text-surface-300 leading-relaxed">
-                In the rapidly evolving world of AI, we embrace change, learn continuously, 
-                and adapt our strategies to meet tomorrow's challenges today.
+                In a world driven by innovation and impact, we uphold accountability — owning our actions, 
+                learning from outcomes, and building trust through unwavering responsibility.
               </p>
             </div>
 
@@ -150,11 +150,11 @@ export default function AboutPage() {
                 <span className="text-2xl">🚀</span>
               </div>
               <h3 className="text-xl font-heading font-bold text-white mb-4">
-                Teamwork
+                Transparency
               </h3>
               <p className="text-surface-300 leading-relaxed">
                 Innovation happens when brilliant minds collaborate. We foster an environment 
-                where diverse perspectives unite to create extraordinary solutions.
+                where diverse perspectives unite transparently to create extraordinary solutions.
               </p>
             </div>
           </div>
