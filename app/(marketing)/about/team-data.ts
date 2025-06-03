@@ -26,8 +26,8 @@ export const TEAM: TeamMember[] = [
 		name: 'Hari',
 		role: 'Founding Engineer & Chief Technology Officer',
 		bio: 'System architect who makes complex tech look easy. Builds the reliable engines powering our AI magic. Based in New Delhi.',
-		avatar: '/team/hari-512x512.webp',
+		avatar: 'https://media.licdn.com/dms/image/v2/D4D03AQG2BNkN-zfQdQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700883835869?e=1754524800&v=beta&t=pPkMWOb7tMgXlx1puEBU7laFR5237zUy_JBXBpOSPq0',
 		socials: [
-			{ type: 'li', url: 'https://media.licdn.com/dms/image/v2/D4D03AQG2BNkN-zfQdQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1700883835869?e=1754524800&v=beta&t=pPkMWOb7tMgXlx1puEBU7laFR5237zUy_JBXBpOSPq0' },		]
+			{ type: 'li', url: 'https://www.linkedin.com/in/harisharnam/' },		]
 	}
 ];
