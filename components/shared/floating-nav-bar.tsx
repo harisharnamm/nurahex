@@ -110,8 +110,8 @@ export function FloatingNavBar() {
 									<div className="flex flex-col space-y-4 text-sm">
 										<ProductItem
 											title="TaxOS"
-											href="https://taxos.com"
-											src="/api/placeholder/140/70"
+											href="https://v0-yo-yo-ai-version-control-mu-nine.vercel.app/"
+											src="https://res.cloudinary.com/dsf0g0xih/image/upload/v1752263101/Screenshot_2025-07-12_at_1.14.37_AM_oujk86.png"
 											description="AI-powered tax optimization platform"
 										/>
 									</div>
