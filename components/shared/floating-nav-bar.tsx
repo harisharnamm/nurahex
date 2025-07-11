@@ -107,23 +107,17 @@ export function FloatingNavBar() {
 							
 							{/* Products dropdown */}
 							<div 
-								className="relative group"
-								onMouseLeave={() => {
-									// Add a small delay before hiding to allow for slight mouse movement
-									setTimeout(() => setActive(null), 100);
-								}}
+								className="relative" 
+								onMouseEnter={() => setActive("Products")} 
+								onMouseLeave={() => setActive(null)}
 							>
 								<div
 									className="px-4 py-2 rounded-full text-sm font-medium cursor-pointer text-black/80 hover:bg-black/5 hover:text-black transition-all duration-200"
-									onMouseEnter={() => setActive("Products")}
 								>
 									Products
 								</div>
 								{active === "Products" && (
-									<div 
-										className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50"
-										onMouseEnter={() => setActive("Products")}
-									>
+									<div className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50">
 										<motion.div
 											initial={{ opacity: 0, y: 10 }}
 											animate={{ opacity: 1, y: 0 }}
