@@ -25,10 +25,10 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white px-4 py-2"
       >
         {item}
       </motion.p>
@@ -39,7 +39,7 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
+            <div className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2">
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
@@ -93,26 +93,33 @@ export const ProductItem = ({
   };
 
   return (
-    <div 
+    <motion.div 
       onClick={handleClick}
-      className="flex space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
+      className="flex space-x-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 p-4 rounded-lg transition-all duration-200"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      data-href={href} // Store href as data attribute for direct access
     >
       <Image
         src={src}
-        width={140}
-        height={70}
+        width={120}
+        height={60}
         alt={title}
         className="flex-shrink-0 rounded-md shadow-2xl"
+        onClick={(e) => { 
+          e.stopPropagation(); 
+          window.open(href, '_blank', 'noopener,noreferrer');
+        }}
       />
-      <div>
+      <div className="flex-grow">
         <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+        <p className="text-neutral-700 text-sm max-w-[12rem] dark:text-neutral-300">
           {description}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

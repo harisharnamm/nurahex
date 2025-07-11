@@ -7,7 +7,8 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/shared/logo"
-import { MenuItem, Menu as NavbarMenu, ProductItem } from "@/components/ui/navbar-menu"
+import { motion } from "framer-motion"
+import { ProductItem } from "@/components/ui/navbar-menu"
 
 const navLinks = [
 	{ href: "/", label: "Home" },
@@ -105,17 +106,42 @@ export function FloatingNavBar() {
 							))}
 							
 							{/* Products dropdown */}
-							<div className="relative">
-								<MenuItem setActive={setActive} active={active} item="Products">
-									<div className="flex flex-col space-y-4 text-sm">
-										<ProductItem
-											title="TaxOS"
-											href="https://v0-yo-yo-ai-version-control-mu-nine.vercel.app/"
-											src="https://res.cloudinary.com/dsf0g0xih/image/upload/v1752263101/Screenshot_2025-07-12_at_1.14.37_AM_oujk86.png"
-											description="AI-powered tax optimization platform"
-										/>
+							<div 
+								className="relative group"
+								onMouseLeave={() => {
+									// Add a small delay before hiding to allow for slight mouse movement
+									setTimeout(() => setActive(null), 100);
+								}}
+							>
+								<div
+									className="px-4 py-2 rounded-full text-sm font-medium cursor-pointer text-black/80 hover:bg-black/5 hover:text-black transition-all duration-200"
+									onMouseEnter={() => setActive("Products")}
+								>
+									Products
+								</div>
+								{active === "Products" && (
+									<div 
+										className="absolute top-full left-1/2 transform -translate-x-1/2 pt-2 z-50"
+										onMouseEnter={() => setActive("Products")}
+									>
+										<motion.div
+											initial={{ opacity: 0, y: 10 }}
+											animate={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 10 }}
+											transition={{ duration: 0.2 }}
+											className="bg-white rounded-2xl overflow-hidden border border-black/[0.1] shadow-xl min-w-[280px]"
+										>
+											<div className="p-5">
+												<ProductItem
+													title="TaxOS"
+													href="https://v0-yo-yo-ai-version-control-mu-nine.vercel.app/"
+													src="https://res.cloudinary.com/dsf0g0xih/image/upload/v1752263101/Screenshot_2025-07-12_at_1.14.37_AM_oujk86.png"
+													description="AI-powered tax optimization platform"
+												/>
+											</div>
+										</motion.div>
 									</div>
-								</MenuItem>
+								)}
 							</div>
 						</div>
 
