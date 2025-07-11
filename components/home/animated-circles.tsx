@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, useMemo } from "react"
+import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"
 
@@ -12,40 +12,8 @@ export function AnimatedCircles() {
   const circleRefs = useRef<(HTMLDivElement | null)[]>([])
   const particleRefs = useRef<(HTMLDivElement | null)[]>([])
   const pathRefs = useRef<(SVGPathElement | null)[]>([])
-  const [isClient, setIsClient] = useState(false)
-
-  // Pre-generate stable particle properties to avoid hydration errors
-  const particleProperties = useMemo(() => {
-    return Array.from({ length: 20 }).map((_, index) => ({
-      width: Math.random() * 8 + 3,
-      height: Math.random() * 8 + 3,
-      backgroundColor: index % 2 === 0 ? "#D7FF1E" : "#9FF4F0",
-      opacity: 0.8,
-      boxShadow: `0 0 ${Math.random() * 10 + 5}px ${index % 2 === 0 ? "#D7FF1E" : "#9FF4F0"}80`,
-    }))
-  }, [])
-
-  // Pre-generate stable bezier path properties to avoid hydration errors
-  const bezierPathProperties = useMemo(() => {
-    return Array.from({ length: 20 }).map(() => ({
-      startX: (Math.random() - 0.5) * 400,
-      startY: (Math.random() - 0.5) * 400,
-      controlX1: (Math.random() - 0.5) * 600,
-      controlY1: (Math.random() - 0.5) * 600,
-      controlX2: (Math.random() - 0.5) * 600,
-      controlY2: (Math.random() - 0.5) * 600,
-      endX: (Math.random() - 0.5) * 400,
-      endY: (Math.random() - 0.5) * 400,
-      duration: 15 + Math.random() * 10,
-    }))
-  }, [])
 
   useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-  useEffect(() => {
-    if (!isClient) return
     // Phase 4: Advanced Motion Path Animations
     
     // Create complex motion paths for circles
@@ -110,9 +78,17 @@ export function AnimatedCircles() {
     particleRefs.current.forEach((particle, i) => {
       if (!particle) return
       
-      // Use pre-generated Bezier path properties
-      const pathProps = bezierPathProperties[i]
-      const bezierPath = `M${pathProps.startX},${pathProps.startY} C${pathProps.controlX1},${pathProps.controlY1} ${pathProps.controlX2},${pathProps.controlY2} ${pathProps.endX},${pathProps.endY}`
+      // Create dynamic Bezier paths for particles
+      const startX = (Math.random() - 0.5) * 400
+      const startY = (Math.random() - 0.5) * 400
+      const controlX1 = (Math.random() - 0.5) * 600
+      const controlY1 = (Math.random() - 0.5) * 600
+      const controlX2 = (Math.random() - 0.5) * 600
+      const controlY2 = (Math.random() - 0.5) * 600
+      const endX = (Math.random() - 0.5) * 400
+      const endY = (Math.random() - 0.5) * 400
+      
+      const bezierPath = `M${startX},${startY} C${controlX1},${controlY1} ${controlX2},${controlY2} ${endX},${endY}`
       
       const particleTl = gsap.timeline({ repeat: -1, yoyo: true })
       
@@ -132,7 +108,7 @@ export function AnimatedCircles() {
             autoRotate: false,
             alignOrigin: [0.5, 0.5]
           },
-          duration: pathProps.duration,
+          duration: 15 + Math.random() * 10,
           ease: "power1.inOut"
         })
         .to(particle, {
@@ -168,7 +144,7 @@ export function AnimatedCircles() {
       gsap.killTweensOf(circleRefs.current)
       gsap.killTweensOf(particleRefs.current)
     }
-  }, [isClient, bezierPathProperties])
+  }, [])
 
   const circles = [
     { size: 120, color: "#D7FF1E", opacity: 0.8 },
@@ -236,17 +212,17 @@ export function AnimatedCircles() {
       ))}
       
       {/* Enhanced floating particles with trail effects */}
-      {isClient && Array.from({ length: 20 }).map((_, index) => (
+      {Array.from({ length: 20 }).map((_, index) => (
         <div
           key={`particle-${index}`}
           ref={el => { particleRefs.current[index] = el }}
           className="absolute rounded-full motion-particle"
           style={{
-            width: particleProperties[index].width,
-            height: particleProperties[index].height,
-            backgroundColor: particleProperties[index].backgroundColor,
-            opacity: particleProperties[index].opacity,
-            boxShadow: particleProperties[index].boxShadow,
+            width: Math.random() * 8 + 3,
+            height: Math.random() * 8 + 3,
+            backgroundColor: index % 2 === 0 ? "#D7FF1E" : "#9FF4F0",
+            opacity: 0.8,
+            boxShadow: `0 0 ${Math.random() * 10 + 5}px ${index % 2 === 0 ? "#D7FF1E" : "#9FF4F0"}80`,
           }}
         />
       ))}
