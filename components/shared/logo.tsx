@@ -4,13 +4,14 @@ import { cn } from "@/lib/utils"
 interface LogoProps {
   variant?: "navbar" | "footer"
   className?: string
+  noLink?: boolean
 }
 
-export function Logo({ variant = "footer", className }: LogoProps) {
+export function Logo({ variant = "footer", className, noLink = false }: LogoProps) {
   const isNavbar = variant === "navbar"
   
-  return (
-    <Link href="/" className={cn("flex items-center space-x-1", className)}>
+  const content = (
+    <>
       <div className="relative w-12 h-12 flex items-center justify-center">
         <svg
           width="48"
@@ -19,8 +20,8 @@ export function Logo({ variant = "footer", className }: LogoProps) {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="block translate-y-0.5"
-          shape-rendering="geometricPrecision"
-          text-rendering="geometricPrecision"
+          shapeRendering="geometricPrecision"
+          textRendering="geometricPrecision"
         >
           <g transform="translate(20,15) scale(0.4)">
             {/* Right half (original with fixed endpoints) */}
@@ -50,6 +51,20 @@ export function Logo({ variant = "footer", className }: LogoProps) {
       )}>
         NurahexAI
       </span>
+    </>
+  )
+  
+  if (noLink) {
+    return (
+      <div className={cn("flex items-center space-x-1", className)}>
+        {content}
+      </div>
+    )
+  }
+  
+  return (
+    <Link href="/" className={cn("flex items-center space-x-1", className)}>
+      {content}
     </Link>
   )
 }

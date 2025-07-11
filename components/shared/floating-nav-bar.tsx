@@ -7,13 +7,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/shared/logo"
-
-// Remove the simple Logo component and import the real Logo
-// const Logo = ({ variant }: { variant?: string }) => (
-// 	<div className="font-bold text-xl text-black">
-// 		NurahexAI
-// 	</div>
-// )
+import { MenuItem, Menu as NavbarMenu, ProductItem } from "@/components/ui/navbar-menu"
 
 const navLinks = [
 	{ href: "/", label: "Home" },
@@ -27,6 +21,7 @@ export function FloatingNavBar() {
 	const [isLoading, setIsLoading] = useState(true)
 	const [lastScrollY, setLastScrollY] = useState(0)
 	const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up')
+	const [active, setActive] = useState<string | null>(null)
 	const pathname = usePathname()
 
 	// Handle loading state - hide navbar during loading animation
@@ -88,11 +83,11 @@ export function FloatingNavBar() {
 							className="z-50 flex items-center space-x-3"
 							style={{ alignItems: "center" }}
 						>
-							<Logo variant="navbar" className="w-7 h-7 min-w-[28px] min-h-[28px]" />
+							<Logo variant="navbar" className="w-7 h-7 min-w-[28px] min-h-[28px]" noLink />
 						</Link>
 
 						{/* Desktop Navigation */}
-						<div className="hidden md:flex items-center space-x-2">
+						<div className="hidden md:flex items-center justify-center flex-1 space-x-2">
 							{navLinks.map((link) => (
 								<Link
 									key={link.href}
@@ -108,6 +103,20 @@ export function FloatingNavBar() {
 									{link.label}
 								</Link>
 							))}
+							
+							{/* Products dropdown */}
+							<div className="relative">
+								<MenuItem setActive={setActive} active={active} item="Products">
+									<div className="flex flex-col space-y-4 text-sm">
+										<ProductItem
+											title="TaxOS"
+											href="https://taxos.com"
+											src="/api/placeholder/140/70"
+											description="AI-powered tax optimization platform"
+										/>
+									</div>
+								</MenuItem>
+							</div>
 						</div>
 
 						<div className="hidden md:block">
@@ -156,6 +165,21 @@ export function FloatingNavBar() {
 									{link.label}
 								</Link>
 							))}
+							
+							{/* Products section for mobile */}
+							<div className="px-4 py-3">
+								<div className="text-sm font-medium text-black/80 mb-2">Products</div>
+								<a
+									href="https://taxos.com"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="block px-4 py-2 rounded-full text-sm text-black/80 hover:bg-black/5 hover:text-black transition-all duration-200"
+									onClick={() => setMobileMenuOpen(false)}
+								>
+									TaxOS
+								</a>
+							</div>
+							
 							<Button
 								asChild
 								className="bg-black text-white rounded-full w-full mt-4 shadow-lg hover:bg-black/90 transition-all duration-200"
