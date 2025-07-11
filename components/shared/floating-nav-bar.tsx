@@ -110,8 +110,8 @@ export function FloatingNavBar() {
 									<div className="flex flex-col space-y-4 text-sm">
 										<ProductItem
 											title="TaxOS"
-											href="https://taxos.com"
-											src="/api/placeholder/140/70"
+											href="https://v0-yo-yo-ai-version-control-mu-nine.vercel.app/"
+											src="https://res.cloudinary.com/dsf0g0xih/image/upload/v1752263101/Screenshot_2025-07-12_at_1.14.37_AM_oujk86.png"
 											description="AI-powered tax optimization platform"
 										/>
 									</div>
@@ -170,7 +170,7 @@ export function FloatingNavBar() {
 							<div className="px-4 py-3">
 								<div className="text-sm font-medium text-black/80 mb-2">Products</div>
 								<a
-									href="https://taxos.com"
+									href="https://v0-yo-yo-ai-version-control-mu-nine.vercel.app/"
 									target="_blank"
 									rel="noopener noreferrer"
 									className="block px-4 py-2 rounded-full text-sm text-black/80 hover:bg-black/5 hover:text-black transition-all duration-200"
