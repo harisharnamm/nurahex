@@ -41,19 +41,19 @@ export default function Home() {
 
   const menuItems = [
   {
-    text: "Transformative AI Solutions",
+    text: "Own Your Intelligence",
     image: "https://images.unsplash.com/photo-1677442135073-705703f7e328?q=80&w=1920&auto=format&fit=crop",
-    hoverText: "We change the way your business operates."
+    hoverText: "Keep every byte of data on‑prem or in your secure cloud. No third‑party models. No unexpected usage surcharges."
   },
   {
-    text: "Lightning Fast Deployment",
+    text: "Plug‑and‑Play Integration",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920&auto=format&fit=crop", 
-    hoverText: "From concept to production in weeks."
+    hoverText: "Connect to your existing systems and data lakes in under a week. Prebuilt connectors for databases, CRMs, and APIs make deployment frictionless."
   },
   {
-    text: "Measurable Results",
+    text: "Production‑Ready by Default",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920&auto=format&fit=crop",
-    hoverText: "Proven ROI with enterprise level scalable solutions."
+    hoverText: "From fine‑tuning to continuous alignment, we handle the entire lifecycle: ingest → train → evaluate → monitor → update."
   }
 ];
 
@@ -635,41 +635,36 @@ export default function Home() {
     {
       number: "01",
       title: "Discovery",
-      description: "We analyze your business needs and identify opportunities for AI implementation.",
+      description: "Deep dive into your objectives, data, and tech stack.",
     },
     {
       number: "02",
-      title: "Strategy",
-      description: "We develop a tailored AI strategy aligned with your business goals.",
+      title: "Strategy & Design",
+      description: "Define use cases, KPIs, and a roadmap for seamless integration.",
     },
     {
       number: "03",
-      title: "Implementation",
-      description: "Our team builds and integrates custom AI solutions into your existing systems.",
+      title: "Implementation & Launch",
+      description: "Fine‑tune models, build APIs, and deploy—complete with monitoring dashboards.",
     },
     {
       number: "04",
-      title: "Execution",
-      description: "We continuously monitor and optimize your AI solutions for maximum performance.",
+      title: "Optimization & Support",
+      description: "Continuous model alignment, performance tuning, and 24/7 expert support.",
     },
   ];
 
   // Social Proof Strip (Testimonial Carousel)
   const testimonials = [
     {
-      quote: "NurahexAI transformed our customer support operations with their AI solution. We've seen a 70% reduction in response time and significantly improved customer satisfaction.",
+      quote: "NurahexAI's private LLM shrank our support ticket backlog by 80% and cut operational costs in half. Their team took us live in three weeks — unbelievable speed and precision.",
       name: "Vipin",
       title: "Head, OakSL Shipping"
     },
     {
-      quote: "The intelligent system NurahexAI built for us has completely transformed how we process data. What used to take days now happens in hours, with fewer errors and more consistent results.",
-      name: "Michael",
-      title: "Head, OneCube"
-    },
-    {
-      quote: "NurahexAI's innovative solution has not only saved us money but has also helped us reduce our environmental impact. It's a win-win for our business and our mission.",
-      name: "Emma",
-      title: "Head, Diode"
+      quote: "We replaced multiple SaaS subscriptions with our in‑house NurahexAI model. Total cost of ownership dropped by 65%, and our data never left our network.",
+      name: "Rajiv",
+      title: "CEO, OneCube"
     }
   ]
   const [testimonialIndex, setTestimonialIndex] = useState(0)
@@ -701,14 +696,18 @@ export default function Home() {
           
           <div className="space-y-6 z-10 hero-content">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="hero-line block">Automate the Grind, <span className="text-primary-700">Amplify the Growth.</span></span>
+              <span className="hero-line block">Your <span className="text-primary-700">Private AI</span>, Your Rules</span>
             </h1>
             <p className="text-xl text-surface-50/80 hero-subtitle">
-              NurahexAI injects production-ready AI workflows into your product in <b>weeks</b>, not months.
+              Zero Dev Effort • Complete Control & Privacy
+            </p>
+           
+            <p className="text-base text-surface-50/60 hero-subtitle">
+              NurahexAI lets you spin up custom LLMs in days — not months — so you can focus on innovation, not infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <PrimaryButton asChild className="hero-cta">
-                <Link href="/contact">Book Discovery Call</Link>
+                <Link href="/contact">Book a 15‑Minute Discovery Call</Link>
               </PrimaryButton>
               <SecondaryLink href="#work" className="hero-cta">
                 See our work <ArrowRight className="ml-2 h-4 w-4" />
@@ -727,23 +726,19 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <AnimatedText animation="splitWords" delay={0} className="text-4xl md:text-5xl font-bold mb-4">
-                  AI implementation <span className="text-primary-700">without the headaches</span>
+                  <span className="text-primary-700">Effortless Adoption</span> of GenAI at Scale
                 </AnimatedText>
                 <AnimatedText animation="slideUp" delay={0.4} className="text-lg text-surface-50/80">
-                  Most companies struggle with AI integration, facing months of development, technical debt, and uncertain
-                  ROI.
+                  We don't just deliver prototypes — we deliver impact.
                 </AnimatedText>
                 <ul className="space-y-4">
                   {[
-                    "Eliminate engineering bottlenecks",
-                    "Reduce time-to-market by 70%",
-                    "Production-ready, not proof-of-concept",
-                    "Seamless integration with existing systems",
-                    "Ongoing optimization and support",
+                    "🔥 Light-Speed Deployment: Weeks, not months, to go live.",
+                    "🚀 Measurable ROI: Proven cost reduction and revenue lift.",
+                    "🔒 Enterprise‑Grade Security: SOC‑2 + ISO‑27001 compliant."
                   ].map((item, index) => (
                     <li key={index} className="flex items-start problem-list-item">
-                      <Check className="h-6 w-6 text-primary-700 mr-2 flex-shrink-0" />
-                      <span>{item}</span>
+                      <span className="mr-3">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -772,10 +767,10 @@ export default function Home() {
           <BackgroundBeamsWithCollision className="bg-surface-700" />
           <div className="text-center py-8 md:py-12 px-4 md:px-6 relative z-10">
             <AnimatedText animation="splitWords" delay={0} className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
-              Why <span className="text-primary-700">Nurahex?</span>
+              Why <span className="text-primary-700">NurahexAI?</span>
             </AnimatedText>
             <p className="text-base md:text-lg text-surface-50/80 max-w-2xl mx-auto">
-              Will lay it out simply: we build AI solutions that work. Fast.
+              We don't just deliver prototypes — we deliver impact.
             </p>
           </div>
           <div className="flowing-menu-container" style={{ 
@@ -796,48 +791,48 @@ export default function Home() {
           <div className="container mx-auto px-6 relative z-10">
             <div className="text-center mb-16">
               <AnimatedText animation="splitWords" delay={0} className="text-4xl md:text-5xl font-bold mb-4">
-                Our <span className="text-primary-700">Services</span>
+                Transformative <span className="text-primary-700">Capabilities</span>
               </AnimatedText>
               <AnimatedText animation="fadeIn" delay={0.3} className="text-lg text-surface-50/80 max-w-2xl mx-auto">
-                We build cutting-edge AI solutions that transform how your business operates and delivers value.
+                We build cutting-edge private AI solutions that transform how your business operates and delivers value.
               </AnimatedText>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
+                  title: "Personalized Intelligence",
+                  description:
+                    "Train LLMs on your proprietary data for domain‑expert insights that generic models can't match.",
+                  icon: <Sparkles className="h-8 w-8 text-primary-700" />,
+                },
+                {
                   title: "Intelligent Automation",
                   description:
-                    "What if your business could run itself? Discover how AI agents transform mundane tasks into seamless workflows.",
+                    "Orchestrate AI agents to handle repetitive workflows — from invoice processing to compliance monitoring — with human‑level accuracy.",
                   icon: <Brain className="h-8 w-8 text-primary-700" />,
+                },
+                {
+                  title: "Conversational AI & Chatbots",
+                  description:
+                    "Deploy RAG‑powered assistants that never hallucinate, understand your business context, and accelerate customer support.",
+                  icon: <Bot className="h-8 w-8 text-primary-700" />,
                 },
                 {
                   title: "Living Digital Experiences",
                   description:
-                    "Imagine websites that think, learn, and respond like your best team member. The future of digital interaction awaits.",
+                    "Build websites and applications that adapt, learn, and engage — creating dynamic user journeys that feel like real conversation.",
                   icon: <Globe className="h-8 w-8 text-primary-700" />,
                 },
                 {
-                  title: "Conversational Intelligence",
-                  description:
-                    "What happens when machines truly understand? Explore the boundary between human conversation and artificial insight.",
-                  icon: <Bot className="h-8 w-8 text-primary-700" />,
-                },
-                {
-                  title: "Beyond Traditional AI",
-                  description:
-                    "Why limit AI to just text? Discover what becomes possible when intelligence processes every form of human expression.",
-                  icon: <Layers className="h-8 w-8 text-primary-700" />,
-                },
-                {
-                  title: "Personalized Intelligence",
-                  description: "What if AI could think like your industry? Explore how custom-trained models unlock unprecedented understanding.",
-                  icon: <Sparkles className="h-8 w-8 text-primary-700" />,
-                },
-                {
                   title: "Predictive Insights",
-                  description: "What patterns hide in your data? Uncover the intelligence that transforms information into competitive advantage.",
+                  description: "Turn raw data into foresight. From sales forecasting to supply‑chain optimization, uncover patterns that drive strategic decisions.",
                   icon: <LineChart className="h-8 w-8 text-primary-700" />,
+                },
+                {
+                  title: "Enterprise‑Grade Security",
+                  description: "Complete data sovereignty with on‑premises deployment options. Your intelligence stays where it belongs — with you.",
+                  icon: <Layers className="h-8 w-8 text-primary-700" />,
                 },
               ].map((service, index) => (
                 <CardGlass key={index} className="h-full service-card">
@@ -857,10 +852,10 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <AnimatedText animation="splitWords" delay={0} className="text-4xl md:text-5xl font-bold mb-4">
-                Our <span className="text-primary-700">Process</span>
+                Our 4‑Step <span className="text-primary-700">Partnership Process</span>
               </AnimatedText>
               <AnimatedText animation="fadeIn" delay={0.3} className="text-lg text-surface-50/80 max-w-2xl mx-auto">
-                A streamlined approach to implementing AI in your business.
+                A streamlined approach to implementing private AI in your business.
               </AnimatedText>
             </div>
 
@@ -923,7 +918,7 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <AnimatedText animation="splitWords" className="text-4xl font-bold mb-4">
-                Trusted by Industry Leaders
+                Success Stories
               </AnimatedText>
             </div>
             <div className="flex flex-col items-center">
@@ -964,7 +959,7 @@ export default function Home() {
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center mb-10">
               <AnimatedText animation="splitWords" className="text-4xl md:text-5xl font-bold mb-4">
-                Join Our Team
+                Join the Future of AI
               </AnimatedText>
               <p className="text-lg text-surface-50/80 max-w-2xl mx-auto">
                 We’re always looking for talented people passionate about AI, design, and building the future. Explore our open positions or reach out if you think you’d be a great fit!
