@@ -128,9 +128,9 @@ export function FloatingNavBar() {
 											<div className="p-5">
 												<ProductItem
 													title="TaxOS"
-													href="https://v0-yo-yo-ai-version-control-mu-nine.vercel.app/"
+													href="https://taxos.nurahex.com/"
 													src="https://res.cloudinary.com/dsf0g0xih/image/upload/v1752263101/Screenshot_2025-07-12_at_1.14.37_AM_oujk86.png"
-													description="AI-powered tax optimization platform"
+													description="AI-powered tax processes optimization platform"
 												/>
 											</div>
 										</motion.div>
