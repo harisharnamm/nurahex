@@ -1,0 +1,42 @@
+.flowing-menu-container {
+  transition: height 0.3s ease;
+}
+
+/* Add touch feedback for better mobile experience */
+@media (max-width: 768px) {
+  .menu__item {
+    position: relative;
+  }
+
+  .menu__item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) rotate(-45deg);
+    transition: all 0.2s ease;
+    pointer-events: none;
+  }
+
+  /* Improve tap/click feedback */
+  .menu__item:active::after {
+    border-color: #C4E81E;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  /* Add visual feedback on tap */
+  .menu__item-link:active {
+    background-color: rgba(196, 232, 30, 0.1);
+  }
+}
+
+/* Small phone optimizations */
+@media (max-width: 480px) {
+  .flowing-menu-container {
+    height: 250px !important; /* Override inline styles */
+  }
+}

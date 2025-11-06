@@ -1,0 +1,81 @@
+/* Mobile optimizations for FlowingMenu */
+@media (max-width: 768px) {
+  .menu__item-link {
+    font-size: 3.2vh;
+    padding: 0 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .marquee span {
+    font-size: 2.8vh;
+    padding: 0.5vh 1vw 0;
+  }
+
+  .marquee__img {
+    width: 120px;
+    height: 5vh;
+    margin: 1em 1vw;
+  }
+
+  /* Add touch-friendly active state */
+  .menu__item-link:active {
+    color: #fff;
+  }
+
+  .menu__item-link:active + .marquee {
+    transform: translate3d(0, 0%, 0);
+  }
+
+  /* Improve touch area */
+  .menu__item {
+    min-height: 80px;
+    touch-action: manipulation;
+  }
+  
+  /* Speed up animation for better UX on mobile */
+  .marquee__inner {
+    animation: marquee 10s linear infinite;
+  }
+}
+
+/* Small phones optimization */
+@media (max-width: 480px) {
+  .menu__item-link {
+    font-size: 2.5vh;
+    white-space: normal;
+    padding: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .marquee span {
+    font-size: 2.2vh;
+  }
+}
+
+/* Extra small phones optimization */
+@media (max-width: 375px) {
+  .menu__item-link {
+    font-size: 16px; /* Use fixed px instead of vh for smallest screens */
+    white-space: normal;
+    padding: 0.4rem;
+    line-height: 1.1;
+    text-transform: none; /* Remove uppercase to save space */
+  }
+  
+  .marquee span {
+    font-size: 14px;
+  }
+  
+  .menu__item {
+    min-height: 60px; /* Reduce minimum height for smallest screens */
+  }
+}
+
+.marquee__img {
+  width: 100px;
+  height: 4vh;
+  margin: 0.8em 0.8vw;
+}

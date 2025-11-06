@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-900: 179, 204, 25;
+    --primary-700: 215, 255, 30;
+    --primary-500: 230, 255, 90;
+    --primary-300: 243, 255, 155;
+    --accent-600: 159, 244, 240;
+    --accent-400: 193, 250, 247;
+    --surface-950: 0, 0, 0;
+    --surface-900: 10, 10, 10;
+    --surface-700: 24, 24, 24;
+    --surface-600: 38, 38, 38;
+    --surface-400: 54, 54, 54;
+    --surface-200: 85, 85, 85;
+    --surface-50: 249, 249, 249;
+
+    --gradient-primary: linear-gradient(135deg, #d7ff1e 0%, #9ff4f0 100%);
+    --shadow-primary: 0 0 16px rgba(215, 255, 30, 0.45);
+    --shadow-accent: 0 0 12px rgba(159, 244, 240, 0.35);
+    --overlay-scrim: rgba(10, 10, 10, 0.72);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --radius: 24px;
+
+    --background: 10, 10, 10;
+    --foreground: 249, 249, 249;
+    --card: 24, 24, 24;
+    --card-foreground: 249, 249, 249;
+    --popover: 24, 24, 24;
+    --popover-foreground: 249, 249, 249;
+    --primary: 215, 255, 30;
+    --primary-foreground: 10, 10, 10;
+    --secondary: 38, 38, 38;
+    --secondary-foreground: 249, 249, 249;
+    --muted: 38, 38, 38;
+    --muted-foreground: 85, 85, 85;
+    --accent: 159, 244, 240;
+    --accent-foreground: 10, 10, 10;
+    --destructive: 248, 113, 113;
+    --destructive-foreground: 249, 249, 249;
+    --border: 38, 38, 38;
+    --input: 38, 38, 38;
+    --ring: 215, 255, 30;
+  }
+
+  .dark {
+    --background: 10, 10, 10;
+    --foreground: 249, 249, 249;
+    --card: 24, 24, 24;
+    --card-foreground: 249, 249, 249;
+    --popover: 24, 24, 24;
+    --popover-foreground: 249, 249, 249;
+    --primary: 215, 255, 30;
+    --primary-foreground: 10, 10, 10;
+    --secondary: 38, 38, 38;
+    --secondary-foreground: 249, 249, 249;
+    --muted: 38, 38, 38;
+    --muted-foreground: 85, 85, 85;
+    --accent: 159, 244, 240;
+    --accent-foreground: 10, 10, 10;
+    --destructive: 248, 113, 113;
+    --destructive-foreground: 249, 249, 249;
+    --border: 38, 38, 38;
+    --input: 38, 38, 38;
+    --ring: 215, 255, 30;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+  p,
+  span,
+  li,
+  a {
+    @apply font-body;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-space-grotesk);
+}
+
+.font-body {
+  font-family: var(--font-inter);
+}
+
+/* Performance optimizations for animations */
+.hero-section {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.particle-container {
+  will-change: transform, opacity;
+  contain: layout style paint;
+}
+
+.magnetic-element {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.service-card {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.timeline-element {
+  will-change: transform, opacity;
+}
+
+
+
+
+
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  will-change: transform, opacity;
+}
+
+
+
+@layer utilities {
+  /* Optimized drop shadow utility for stable 3D text */
+  .drop-shadow-3d {
+    filter: 
+      drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4))
+      drop-shadow(0 4px 8px rgba(215, 255, 30, 0.15))
+      drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+  }
+  
+  /* Additional 3D text utilities */
+  .text-shadow-3d {
+    text-shadow: 
+      0 4px 20px rgba(215, 255, 30, 0.4),
+      0 8px 40px rgba(215, 255, 30, 0.2),
+      0 0 60px rgba(215, 255, 30, 0.1);
+  }
+  
+  .perspective-deep {
+    perspective: 2000px;
+    perspective-origin: center center;
+  }
+  
+  .transform-3d {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+}
+
+/* Enhanced drop shadow utility for 3D text */
+.drop-shadow-3d {
+  filter: 
+    drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 8px 16px rgba(215, 255, 30, 0.2))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .particle-container,
+  .magnetic-element,
+  .service-card,
+  .timeline-element {
+    animation: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+  
+  .hero-section {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+/* Enhanced scroll marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Navbar expand from center animation */
+@keyframes expand-from-center {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.animate-expand-from-center {
+  animation: expand-from-center 0.6s ease-out forwards;
+  transform-origin: center;
+}
+
+/* Hardware acceleration for navbar */
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Accessibility improvements */
+.particle-container[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+/* Hardware acceleration for better performance */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
