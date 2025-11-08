@@ -31,18 +31,18 @@
   text-decoration: none;
   white-space: nowrap;
   font-weight: 600;
-  color: #060606;
+  color: var(--menu-item-color, #060606);
   font-size: 4vh;
   padding: 0 1rem;
   text-align: center;
 }
 
 .menu__item-link:hover {
-  color: #fff;
+  color: var(--menu-item-hover-color, #fff);
 }
 
 .menu__item-link:focus:not(:focus-visible) {
-  color: #fff;
+  color: var(--menu-item-hover-color, #fff);
 }
 
 .marquee {
@@ -76,7 +76,7 @@
 }
 
 .marquee span {
-  color: #060606;
+  color: var(--marquee-text-color, #060606);
   white-space: nowrap;
   text-transform: uppercase;
   font-weight: 400;

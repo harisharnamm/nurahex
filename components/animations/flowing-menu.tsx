@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { gsap } from 'gsap';
+import { useTheme } from '@/components/providers/theme-provider';
 import './flowing-menu.css';
 import './flowing-menu.mobile.css';
 
@@ -17,18 +18,25 @@ interface FlowingMenuProps {
 }
 
 function FlowingMenu({ items = [] }: FlowingMenuProps) {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
-    <div className="menu-wrap">
+    <div className={`menu-wrap ${isDark ? 'dark' : ''}`}>
       <nav className="menu">
         {items.map((item, idx) => (
-          <MenuItem key={idx} {...item} />
+          <MenuItem key={idx} {...item} isDark={isDark} />
         ))}
       </nav>
     </div>
   );
 }
 
-function MenuItem({ link, text, image, hoverText }: MenuItemData) {
+interface MenuItemProps extends MenuItemData {
+  isDark: boolean;
+}
+
+function MenuItem({ link, text, image, hoverText, isDark }: MenuItemProps) {
   const itemRef = React.useRef<HTMLDivElement>(null);
   const marqueeRef = React.useRef<HTMLDivElement>(null);
   const marqueeInnerRef = React.useRef<HTMLDivElement>(null);
@@ -88,6 +96,11 @@ function MenuItem({ link, text, image, hoverText }: MenuItemData) {
         className="menu__item-link"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        style={{
+          color: isDark ? '#ffffff' : '#060606',
+          ['--menu-item-hover-color' as any]: isDark ? '#c4eb17' : '#ffffff',
+          ['--marquee-text-color' as any]: isDark ? '#ffffff' : '#060606',
+        }}
       >
         {text}
       </div>
